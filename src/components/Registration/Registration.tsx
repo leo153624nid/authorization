@@ -4,7 +4,7 @@ import { useAppDispatch } from '../../store/hooks/hooks'
 import { setUser } from '../../store/slices/userSlice'
 import Form from '../Form/Form'
 
-function Registration({ title, handleClick }) {
+function Registration() {
     const dispatch = useAppDispatch()
 
     const handleRegister = (email, pass) => {
