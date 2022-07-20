@@ -24,7 +24,9 @@ function Login() {
                 )
                 navigate('/', { replace: true })
             })
-            .catch(console.error)
+            .catch(() => {
+                alert('Invalid user!')
+            })
     }
 
     return <Form title="login" handleClick={handleLogin} />
