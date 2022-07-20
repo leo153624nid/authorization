@@ -4,7 +4,7 @@ import { useAppDispatch } from '../../store/hooks/hooks'
 import { setUser } from '../../store/slices/userSlice'
 import Form from '../Form/Form'
 
-function Login({ title, handleClick }) {
+function Login() {
     const dispatch = useAppDispatch()
 
     const handleLogin = (email, pass) => {
