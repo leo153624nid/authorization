@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable no-alert */
 /* eslint-disable import/extensions */
 /* eslint-disable import/no-unresolved */
 import React from 'react'
@@ -11,7 +13,7 @@ function Login() {
     const dispatch = useAppDispatch()
     const navigate = useNavigate()
 
-    const handleLogin = (email, pass) => {
+    const handleLogin = (email: string, pass: string) => {
         const auth = getAuth()
         signInWithEmailAndPassword(auth, email, pass)
             .then(({ user }) => {
@@ -24,8 +26,9 @@ function Login() {
                 )
                 navigate('/', { replace: true })
             })
-            .catch(() => {
+            .catch((err) => {
                 alert('Invalid user!')
+                console.log(err)
             })
     }
 
