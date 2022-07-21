@@ -1,6 +1,12 @@
 import React, { useState } from 'react'
 
-function Form({ title, handleClick }) {
+interface FormProps {
+    title: string
+    // eslint-disable-next-line no-unused-vars
+    handleClick: (email: string, pass: string) => void
+}
+
+function Form({ title, handleClick }: FormProps) {
     const [email, setEmail] = useState('')
     const [pass, setPass] = useState('')
     return (
