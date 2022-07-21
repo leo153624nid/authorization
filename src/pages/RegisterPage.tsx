@@ -1,3 +1,5 @@
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-unresolved */
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import Registration from '../components/Registration/Registration'
