@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable no-alert */
 /* eslint-disable import/extensions */
 /* eslint-disable import/no-unresolved */
 import React from 'react'
@@ -11,7 +13,7 @@ function Registration() {
     const dispatch = useAppDispatch()
     const navigate = useNavigate()
 
-    const handleRegister = (email, pass) => {
+    const handleRegister = (email: string, pass: string) => {
         const auth = getAuth()
 
         createUserWithEmailAndPassword(auth, email, pass)
@@ -25,7 +27,10 @@ function Registration() {
                 )
                 navigate('/', { replace: true })
             })
-            .catch(console.error)
+            .catch((err) => {
+                alert('Invalid user!')
+                console.log(err)
+            })
     }
 
     return <Form title="register" handleClick={handleRegister} />
