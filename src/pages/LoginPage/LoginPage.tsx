@@ -27,6 +27,7 @@ function LoginPage() {
                 </div>
 
                 <div className={s.redirectCreate}>
+                    <span className={s.txt}>or </span>
                     <NavLink to="/register">
                         <span className={s.txtRef}>Create your Account</span>
                     </NavLink>
