@@ -14,7 +14,7 @@ function RegisterPage() {
             </div>
 
             <form className={s.loginForm}>
-                <span className={s.loginFormTitle}>Register</span>
+                <span className={s.loginFormTitle}>Registration</span>
 
                 <Registration />
 
