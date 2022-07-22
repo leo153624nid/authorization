@@ -33,7 +33,7 @@ function Registration() {
             })
     }
 
-    return <Form title="register" handleClick={handleRegister} />
+    return <Form title="create new account" handleClick={handleRegister} />
 }
 
 export default Registration
