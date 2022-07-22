@@ -2,8 +2,8 @@
 /* eslint-disable import/no-unresolved */
 import React from 'react'
 import { Navigate } from 'react-router-dom'
-import { useAuth, useAppDispatch } from '../store/hooks/hooks'
-import { removeUser } from '../store/slices/userSlice'
+import { useAuth, useAppDispatch } from '../../store/hooks/hooks'
+import { removeUser } from '../../store/slices/userSlice'
 
 function HomePage() {
     const { isAuth, email } = useAuth()

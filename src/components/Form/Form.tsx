@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import s from './Form.module.css'
 
 interface FormProps {
     title: string
@@ -9,25 +10,38 @@ interface FormProps {
 function Form({ title, handleClick }: FormProps) {
     const [email, setEmail] = useState('')
     const [pass, setPass] = useState('')
+
     return (
         <div>
-            <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="email"
-            />
+            <div className={s.wrapInput}>
+                <input
+                    className={s.inputForm}
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="email"
+                />
+            </div>
 
-            <input
-                type="password"
-                value={pass}
-                onChange={(e) => setPass(e.target.value)}
-                placeholder="password"
-            />
+            <div className={s.wrapInput}>
+                <input
+                    className={s.inputForm}
+                    type="password"
+                    value={pass}
+                    onChange={(e) => setPass(e.target.value)}
+                    placeholder="password"
+                />
+            </div>
 
-            <button type="submit" onClick={() => handleClick(email, pass)}>
-                {title}
-            </button>
+            <div className={s.wrapBtnForm}>
+                <button
+                    className={s.btnForm}
+                    type="submit"
+                    onClick={() => handleClick(email, pass)}
+                >
+                    {title}
+                </button>
+            </div>
         </div>
     )
 }

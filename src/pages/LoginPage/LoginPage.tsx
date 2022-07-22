@@ -13,29 +13,26 @@ function LoginPage() {
                 <img src={img} alt="IMG" />
             </div>
 
-            <form className="login100-form validate-form">
-                <span className="login100-form-title">Member Login</span>
+            <div className={s.loginForm}>
+                <span className={s.loginFormTitle}>Member Login</span>
 
                 <Login />
 
-                <div className="text-center p-t-12">
-                    <span className="txt1">Forgot</span>
+                <div className={s.redirectForgot}>
+                    <span className={s.txt}>Forgot </span>
                     <NavLink to="/">
                         {/* TODO  href */}
-                        <span className="txt2">Username / Password?</span>
+                        <span className={s.txtRef}>Username / Password?</span>
                     </NavLink>
                 </div>
 
-                <div className="text-center p-t-136">
+                <div className={s.redirectCreate}>
                     <NavLink to="/register">
-                        <span className="txt2">Create your Account</span>
+                        <span className={s.txtRef}>Create your Account</span>
                     </NavLink>
+                    <span> &rarr;</span>
                 </div>
-            </form>
-
-            <p>
-                or <NavLink to="/register">register</NavLink>
-            </p>
+            </div>
         </div>
     )
 }

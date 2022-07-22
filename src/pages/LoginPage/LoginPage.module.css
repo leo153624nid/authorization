@@ -1,5 +1,6 @@
 .loginPage {
     width: 960px;
+    height: 610px;
     background: #fff;
     border-radius: 10px;
     overflow: hidden;
@@ -20,4 +21,45 @@
 
 .loginPic img {
     max-width: 100%;
+}
+
+.loginForm {
+    width: 290px;
+}
+
+.loginFormTitle {
+    font-family: Poppins-Bold;
+    font-size: 24px;
+    color: #333333;
+    line-height: 1.2;
+    text-align: center;
+    width: 100%;
+    display: block;
+    padding-bottom: 54px;
+}
+
+.redirectForgot {
+    padding: 20px;
+}
+
+.redirectCreate {
+    padding: 20px;
+}
+
+.txt {
+    font-family: Poppins-Regular;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #999999;
+}
+
+.txtRef {
+    font-family: Poppins-Regular;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #666666;
+}
+.txtRef:hover {
+    text-decoration: none;
+    color: #57b846;
 }
