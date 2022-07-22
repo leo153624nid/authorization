@@ -1,6 +1,6 @@
 .loginPage {
     width: 960px;
-    height: 610px;
+    height: 560px;
     background: #fff;
     border-radius: 10px;
     overflow: hidden;
@@ -10,12 +10,12 @@
     display: -ms-flexbox;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 177px 130px 33px 95px;
+    justify-content: space-around;
+    padding: 90px;
 }
 
 .loginPic {
-    width: 316px;
+    width: 350px;
 }
 
 .loginPic img {
@@ -23,7 +23,7 @@
 }
 
 .loginForm {
-    width: 290px;
+    width: 350px;
 }
 
 .loginFormTitle {
@@ -38,11 +38,13 @@
 }
 
 .redirectForgot {
+    text-align: center;
     padding: 20px;
 }
 
 .redirectCreate {
-    padding: 20px;
+    text-align: center;
+    padding-bottom: 0;
 }
 
 .txt {
