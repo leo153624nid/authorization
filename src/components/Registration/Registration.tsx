@@ -28,7 +28,7 @@ function Registration() {
                 navigate('/', { replace: true })
             })
             .catch((err) => {
-                alert('Invalid user!')
+                alert('Error of creating user!')
                 console.log(err)
             })
     }
