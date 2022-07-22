@@ -27,7 +27,7 @@ function Login() {
                 navigate('/', { replace: true })
             })
             .catch((err) => {
-                alert('Invalid user!')
+                alert('Error of sing in!')
                 console.log(err)
             })
     }
