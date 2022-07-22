@@ -4,17 +4,34 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import Login from '../../components/Login/Login'
 import s from './LoginPage.module.css'
+import img from '../../img/img-01.png'
 
 function LoginPage() {
     return (
         <div className={s.loginPage}>
-            <div className="login100-pic js-tilt" data-tilt>
-                <img src="images/img-01.png" alt="IMG" />
+            <div className={s.loginPic}>
+                <img src={img} alt="IMG" />
             </div>
 
-            <h1>Login</h1>
+            <form className="login100-form validate-form">
+                <span className="login100-form-title">Member Login</span>
 
-            <Login />
+                <Login />
+
+                <div className="text-center p-t-12">
+                    <span className="txt1">Forgot</span>
+                    <NavLink to="/">
+                        {/* TODO  href */}
+                        <span className="txt2">Username / Password?</span>
+                    </NavLink>
+                </div>
+
+                <div className="text-center p-t-136">
+                    <NavLink to="/register">
+                        <span className="txt2">Create your Account</span>
+                    </NavLink>
+                </div>
+            </form>
 
             <p>
                 or <NavLink to="/register">register</NavLink>
