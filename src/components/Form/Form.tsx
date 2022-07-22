@@ -21,6 +21,12 @@ function Form({ title, handleClick }: FormProps) {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="email"
                 />
+                <span className="focus-input100" /> {/* TODO focus */}
+                <span className="symbol-input100">
+                    {' '}
+                    {/* TODO symbol */}
+                    <i className="fa fa-envelope" aria-hidden="true" />
+                </span>
             </div>
 
             <div className={s.wrapInput}>
@@ -31,6 +37,12 @@ function Form({ title, handleClick }: FormProps) {
                     onChange={(e) => setPass(e.target.value)}
                     placeholder="password"
                 />
+                <span className="focus-input100" /> {/* TODO focus */}
+                <span className="symbol-input100">
+                    {' '}
+                    {/* TODO symbol */}
+                    <i className="fa fa-lock" aria-hidden="true" />
+                </span>
             </div>
 
             <div className={s.wrapBtnForm}>
