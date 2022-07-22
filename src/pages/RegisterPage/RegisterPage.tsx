@@ -19,8 +19,9 @@ function RegisterPage() {
                 <Registration />
 
                 <div className={s.redirectCreate}>
+                    <span className={s.txt}>or </span>
                     <NavLink to="/login">
-                        <span className={s.txtRef}>Sing in</span>
+                        <span className={s.txtRef}>Log in</span>
                     </NavLink>
                     <span> &rarr;</span>
                 </div>
