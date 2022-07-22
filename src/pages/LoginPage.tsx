@@ -6,7 +6,7 @@ import Login from '../components/Login/Login'
 
 function LoginPage() {
     return (
-        <div>
+        <div className="container-login100">
             <h1>Login</h1>
             <Login />
             <p>
