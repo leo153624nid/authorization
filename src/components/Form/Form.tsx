@@ -23,12 +23,9 @@ function Form({ title, handleClick }: FormProps) {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="email"
                 />
-                <span className="focus-input100" /> {/* TODO focus */}
-                <span className="symbol-input100">
-                    {' '}
-                    {/* TODO symbol */}
+                <span className={s.focusInputForm} /> {/* TODO focus */}
+                <span className={s.symbolInput}>
                     <FaAt />
-                    <i className="fa fa-envelope" aria-hidden="true" />
                 </span>
             </div>
 
@@ -40,12 +37,9 @@ function Form({ title, handleClick }: FormProps) {
                     onChange={(e) => setPass(e.target.value)}
                     placeholder="password"
                 />
-                <span className="focus-input100" /> {/* TODO focus */}
-                <span className="symbol-input100">
-                    {' '}
-                    {/* TODO symbol */}
+                <span className={s.focusInputForm} /> {/* TODO focus */}
+                <span className={s.symbolInput}>
                     <BsKeyFill />
-                    <i className="fa fa-lock" aria-hidden="true" />
                 </span>
             </div>
 
