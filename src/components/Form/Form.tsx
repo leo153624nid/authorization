@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { FaAt } from 'react-icons/fa'
+import { BsKeyFill } from 'react-icons/bs'
 import s from './Form.module.css'
 
 interface FormProps {
@@ -25,6 +27,7 @@ function Form({ title, handleClick }: FormProps) {
                 <span className="symbol-input100">
                     {' '}
                     {/* TODO symbol */}
+                    <FaAt />
                     <i className="fa fa-envelope" aria-hidden="true" />
                 </span>
             </div>
@@ -41,6 +44,7 @@ function Form({ title, handleClick }: FormProps) {
                 <span className="symbol-input100">
                     {' '}
                     {/* TODO symbol */}
+                    <BsKeyFill />
                     <i className="fa fa-lock" aria-hidden="true" />
                 </span>
             </div>
