@@ -20,9 +20,8 @@ function LoginPage() {
 
                 <div className={s.redirectForgot}>
                     <span className={s.txt}>Forgot </span>
-                    <NavLink to="/">
-                        {/* TODO  href */}
-                        <span className={s.txtRef}>Username / Password?</span>
+                    <NavLink to="/recovery">
+                        <span className={s.txtRef}>Password?</span>
                     </NavLink>
                 </div>
 
