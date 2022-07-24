@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom'
 import { useAppDispatch } from '../../store/hooks/hooks'
 import { setUser } from '../../store/slices/userSlice'
 import Form from '../Form/Form'
+import { LOGIN } from '../../constants'
 
 function Login() {
     const dispatch = useAppDispatch()
@@ -32,7 +33,7 @@ function Login() {
             })
     }
 
-    return <Form title="login" handleClick={handleLogin} />
+    return <Form title={LOGIN} handleClick={handleLogin} />
 }
 
 export default Login
