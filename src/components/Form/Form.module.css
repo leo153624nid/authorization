@@ -10,7 +10,6 @@
     font-size: 15px;
     line-height: 1.5;
     color: #666666;
-
     display: block;
     width: 100%;
     background: #e6e6e6;
@@ -117,4 +116,49 @@
 
 .btnForm:hover {
     background: #333333;
+}
+
+.checkbox {
+}
+
+.checkBoxInput {
+    display: none;
+}
+
+.checkBoxInput:checked + .checkBoxLabel::after {
+    transform: scale(1);
+}
+
+.checkBoxLabel {
+    position: relative;
+    display: inline-flex;
+    width: 100%;
+    align-items: center;
+    font-size: 15px;
+    color: #666666;
+    cursor: pointer;
+    /* line-height: 140%; */
+}
+
+.checkBoxLabel::before {
+    content: '';
+    flex: 0 0 24px;
+    align-self: flex-start;
+    height: 24px;
+    background-color: #e6e6e6;
+    border-radius: 4px;
+    margin: 0 10px 0 0;
+}
+
+.checkBoxLabel::after {
+    transition: transform 0.3s ease 0s;
+    content: '';
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    background-color: #57b846;
+    border-radius: 4px;
+    transform: scale(0);
 }
