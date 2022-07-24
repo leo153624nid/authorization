@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react'
 import { FaAt } from 'react-icons/fa'
 import { BsKeyFill } from 'react-icons/bs'
@@ -47,17 +48,16 @@ function Form({ title, handleClick }: FormProps) {
             )}
 
             {title === LOGIN && (
-                <div className={s.wrapInput}>
+                <div className={s.checkbox}>
                     <input
-                        className={s.inputForm}
+                        className={s.checkBoxInput}
                         type="checkbox"
-                        value={pass}
-                        onChange={(e) => e.target.value}
+                        id="remember"
+                        onChange={(e) => e.target.value} /* TODO */
                     />
-                    <span className={s.focusInputForm} />
-                    <span className={s.symbolInput}>
-                        <BsKeyFill />
-                    </span>
+                    <label htmlFor="remember" className={s.checkBoxLabel}>
+                        <span>Remember Me</span>
+                    </label>
                 </div>
             )}
 
