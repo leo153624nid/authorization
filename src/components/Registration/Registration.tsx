@@ -8,6 +8,7 @@ import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
 import { useAppDispatch } from '../../store/hooks/hooks'
 import { setUser } from '../../store/slices/userSlice'
 import Form from '../Form/Form'
+import { CREATE_NEW_ACCOUNT } from '../../constants'
 
 function Registration() {
     const dispatch = useAppDispatch()
@@ -33,7 +34,7 @@ function Registration() {
             })
     }
 
-    return <Form title="create new account" handleClick={handleRegister} />
+    return <Form title={CREATE_NEW_ACCOUNT} handleClick={handleRegister} />
 }
 
 export default Registration
