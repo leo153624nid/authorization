@@ -19,9 +19,8 @@ function Registration() {
         pass: string,
         memo: boolean
     ) => {
+        const auth = getAuth()
         try {
-            const auth = getAuth()
-
             const { user } = await createUserWithEmailAndPassword(
                 auth,
                 email,
