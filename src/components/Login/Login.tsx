@@ -14,8 +14,9 @@ function Login() {
     const dispatch = useAppDispatch()
     const navigate = useNavigate()
 
-    const handleLogin = (email: string, pass: string) => {
+    const handleLogin = (email: string, pass: string, memo: boolean) => {
         const auth = getAuth()
+
         signInWithEmailAndPassword(auth, email, pass)
             .then(({ user }) => {
                 dispatch(
@@ -25,7 +26,15 @@ function Login() {
                         token: user.refreshToken,
                     })
                 )
+
                 navigate('/', { replace: true })
+
+                if (memo) {
+                    localStorage.setItem('email', email)
+                    localStorage.setItem('password', pass)
+                } else {
+                    localStorage.clear()
+                }
             })
             .catch((err) => {
                 alert('Error of log in!')
