@@ -8,12 +8,25 @@ import { LOGIN, RESET_PASSWORD } from '../../constants'
 interface FormProps {
     title: string
     // eslint-disable-next-line no-unused-vars
-    handleClick: (email: string, pass: string) => void
+    handleClick: (email: string, pass: string, memo: boolean) => void
 }
 
 function Form({ title, handleClick }: FormProps) {
-    const [email, setEmail] = useState('')
-    const [pass, setPass] = useState('')
+    let emailMemo = ''
+    let passMemo = ''
+
+    if (title === LOGIN) {
+        emailMemo = localStorage.getItem('email')
+            ? (localStorage.getItem('email') as string)
+            : ''
+        passMemo = localStorage.getItem('password')
+            ? (localStorage.getItem('password') as string)
+            : ''
+    }
+
+    const [email, setEmail] = useState(emailMemo)
+    const [pass, setPass] = useState(passMemo)
+    const [memo, setMemo] = useState(true)
 
     return (
         <div>
@@ -53,7 +66,8 @@ function Form({ title, handleClick }: FormProps) {
                         className={s.checkBoxInput}
                         type="checkbox"
                         id="remember"
-                        onChange={(e) => e.target.value} /* TODO */
+                        checked={memo}
+                        onChange={() => setMemo(!memo)} /* TODO */
                     />
                     <label htmlFor="remember" className={s.checkBoxLabel}>
                         <span>Remember Me</span>
@@ -65,7 +79,7 @@ function Form({ title, handleClick }: FormProps) {
                 <button
                     className={s.btnForm}
                     type="submit"
-                    onClick={() => handleClick(email, pass)}
+                    onClick={() => handleClick(email, pass, memo)}
                 >
                     {title}
                 </button>
