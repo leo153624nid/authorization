@@ -14,32 +14,32 @@ function Login() {
     const dispatch = useAppDispatch()
     const navigate = useNavigate()
 
-    const handleLogin = (email: string, pass: string, memo: boolean) => {
-        const auth = getAuth()
+    const handleLogin = async (email: string, pass: string, memo: boolean) => {
+        try {
+            const auth = getAuth()
 
-        signInWithEmailAndPassword(auth, email, pass)
-            .then(({ user }) => {
-                dispatch(
-                    setUser({
-                        email: user.email,
-                        id: user.uid,
-                        token: user.refreshToken,
-                    })
-                )
+            const { user } = await signInWithEmailAndPassword(auth, email, pass)
+            console.dir(user)
+            dispatch(
+                setUser({
+                    email: user.email,
+                    id: user.uid,
+                    token: user.refreshToken,
+                })
+            )
 
-                navigate('/', { replace: true })
+            navigate('/', { replace: true })
 
-                if (memo) {
-                    localStorage.setItem('email', email)
-                    localStorage.setItem('password', pass)
-                } else {
-                    localStorage.clear()
-                }
-            })
-            .catch((err) => {
-                alert('Error of log in!')
-                console.log(err)
-            })
+            if (memo) {
+                localStorage.setItem('email', email)
+                localStorage.setItem('password', pass)
+            } else {
+                localStorage.clear()
+            }
+        } catch (error) {
+            alert('Error of log in!')
+            console.log(error)
+        }
     }
 
     return <Form title={LOGIN} handleClick={handleLogin} />

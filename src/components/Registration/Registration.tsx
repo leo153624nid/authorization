@@ -14,24 +14,41 @@ function Registration() {
     const dispatch = useAppDispatch()
     const navigate = useNavigate()
 
-    const handleRegister = (email: string, pass: string) => {
-        const auth = getAuth()
+    const handleRegister = async (
+        email: string,
+        pass: string,
+        memo: boolean
+    ) => {
+        try {
+            const auth = getAuth()
 
-        createUserWithEmailAndPassword(auth, email, pass)
-            .then(({ user }) => {
-                dispatch(
-                    setUser({
-                        email: user.email,
-                        id: user.uid,
-                        token: user.refreshToken,
-                    })
-                )
-                navigate('/', { replace: true })
-            })
-            .catch((err) => {
-                alert('Error of creating user!')
-                console.log(err)
-            })
+            const { user } = await createUserWithEmailAndPassword(
+                auth,
+                email,
+                pass
+            )
+
+            console.dir(user)
+            dispatch(
+                setUser({
+                    email: user.email,
+                    id: user.uid,
+                    token: user.refreshToken,
+                })
+            )
+
+            navigate('/', { replace: true })
+
+            if (memo) {
+                localStorage.setItem('email', email)
+                localStorage.setItem('password', pass)
+            } else {
+                localStorage.clear()
+            }
+        } catch (error) {
+            alert('Error of registration!')
+            console.log(error)
+        }
     }
 
     return <Form title={CREATE_NEW_ACCOUNT} handleClick={handleRegister} />

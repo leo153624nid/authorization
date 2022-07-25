@@ -29,6 +29,12 @@ function Form({ title, handleClick }: FormProps) {
     const [pass, setPass] = useState(passMemo)
     const [memo, setMemo] = useState(true)
 
+    const handleOnSubmit = () => {
+        if (title === RESET_PASSWORD) localStorage.removeItem('password')
+
+        handleClick(email, pass, memo)
+    }
+
     return (
         <div>
             <div className={s.wrapInput}>
@@ -61,14 +67,14 @@ function Form({ title, handleClick }: FormProps) {
                 </div>
             )}
 
-            {title === LOGIN && (
+            {title !== RESET_PASSWORD && (
                 <div className={s.checkbox}>
                     <input
                         className={s.checkBoxInput}
                         type="checkbox"
                         id="remember"
                         checked={memo}
-                        onChange={() => setMemo(!memo)} /* TODO */
+                        onChange={() => setMemo(!memo)}
                     />
                     <label htmlFor="remember" className={s.checkBoxLabel}>
                         <span>Remember Me</span>
@@ -80,7 +86,7 @@ function Form({ title, handleClick }: FormProps) {
                 <button
                     className={s.btnForm}
                     type="submit"
-                    onClick={() => handleClick(email, pass, memo)}
+                    onClick={handleOnSubmit}
                 >
                     {title}
                 </button>
