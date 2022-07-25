@@ -15,6 +15,7 @@ function Form({ title, handleClick }: FormProps) {
     let emailMemo = ''
     let passMemo = ''
 
+    // Проверяем, запомнен ли пользователь в браузере при логинизации
     if (title === LOGIN) {
         emailMemo = localStorage.getItem('email')
             ? (localStorage.getItem('email') as string)
