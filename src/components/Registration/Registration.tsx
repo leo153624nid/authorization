@@ -19,20 +19,16 @@ function Registration() {
         pass: string,
         memo: boolean
     ) => {
-        const auth = getAuth()
         try {
-            const { user } = await createUserWithEmailAndPassword(
-                auth,
-                email,
-                pass
-            )
+            const auth = getAuth()
+            const data = await createUserWithEmailAndPassword(auth, email, pass)
 
-            console.dir(user)
+            console.dir(data)
             dispatch(
                 setUser({
-                    email: user.email,
-                    id: user.uid,
-                    token: user.refreshToken,
+                    email: data.user.email,
+                    id: data.user.uid,
+                    token: data.user.refreshToken,
                 })
             )
 
@@ -45,8 +41,8 @@ function Registration() {
                 localStorage.clear()
             }
         } catch (error) {
-            alert('Error of registration!')
             console.log(error)
+            alert('Error of registration!')
         }
     }
 
