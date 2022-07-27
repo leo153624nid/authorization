@@ -9,15 +9,14 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    padding: 90px;
+    padding: 80px;
 }
 
 .loginPic {
     width: 350px;
-}
-
-.loginPic img {
-    max-width: 100%;
+    img {
+        max-width: 100%;
+    }
 }
 
 .loginForm {
@@ -57,8 +56,8 @@
     font-size: 13px;
     line-height: 1.5;
     color: $color_grey;
-}
-.txtRef:hover {
-    text-decoration: none;
-    color: $color_green;
+    &:hover {
+        text-decoration: none;
+        color: $color_green;
+    }
 }
