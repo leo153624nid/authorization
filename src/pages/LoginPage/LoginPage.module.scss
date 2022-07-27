@@ -1,0 +1,66 @@
+.loginPage {
+    width: 960px;
+    height: 560px;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 90px;
+}
+
+.loginPic {
+    width: 350px;
+}
+
+.loginPic img {
+    max-width: 100%;
+}
+
+.loginForm {
+    width: 350px;
+}
+
+.loginFormTitle {
+    font-family: Poppins-Bold;
+    font-size: 24px;
+    color: #333333;
+    line-height: 1.2;
+    text-align: center;
+    width: 100%;
+    display: block;
+    padding-bottom: 54px;
+}
+
+.redirectForgot {
+    text-align: center;
+    padding: 20px;
+}
+
+.redirectCreate {
+    text-align: center;
+    padding: 40px;
+}
+
+.txt {
+    font-family: Poppins-Regular;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #999999;
+}
+
+.txtRef {
+    font-family: Poppins-Regular;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #666666;
+}
+.txtRef:hover {
+    text-decoration: none;
+    color: #57b846;
+}
