@@ -95,10 +95,9 @@
     align-items: center;
     padding: 0 25px;
     transition: all 0.4s;
-}
-
-.btnForm:hover {
-    background: $color_dark_grey;
+    &:hover {
+        background: $color_dark_grey;
+    }
 }
 
 .checkbox {
@@ -120,28 +119,25 @@
     font-size: 15px;
     color: $color_grey;
     cursor: pointer;
-    /* line-height: 140%; */
-}
-
-.checkBoxLabel::before {
-    content: '';
-    flex: 0 0 24px;
-    align-self: flex-start;
-    height: 24px;
-    background-color: $color_beige;
-    border-radius: 4px;
-    margin: 0 10px 0 0;
-}
-
-.checkBoxLabel::after {
-    transition: transform 0.3s ease 0s;
-    content: '';
-    width: 16px;
-    height: 16px;
-    position: absolute;
-    top: 4px;
-    left: 4px;
-    background-color: $color_green;
-    border-radius: 4px;
-    transform: scale(0);
+    &:before {
+        content: '';
+        flex: 0 0 24px;
+        align-self: flex-start;
+        height: 24px;
+        background-color: $color_beige;
+        border-radius: 4px;
+        margin: 0 10px 0 0;
+    }
+    &:after {
+        transition: transform 0.3s ease 0s;
+        content: '';
+        width: 16px;
+        height: 16px;
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        background-color: $color_green;
+        border-radius: 4px;
+        transform: scale(0);
+    }
 }
