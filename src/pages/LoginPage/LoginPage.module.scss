@@ -1,13 +1,11 @@
+@import '../../stylesConst.scss';
+
 .loginPage {
     width: 960px;
     height: 560px;
-    background: #fff;
+    background: $color_white;
     border-radius: 10px;
     overflow: hidden;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -29,7 +27,7 @@
 .loginFormTitle {
     font-family: Poppins-Bold;
     font-size: 24px;
-    color: #333333;
+    color: $color_dark_grey;
     line-height: 1.2;
     text-align: center;
     width: 100%;
@@ -51,16 +49,16 @@
     font-family: Poppins-Regular;
     font-size: 13px;
     line-height: 1.5;
-    color: #999999;
+    color: $color_light_grey;
 }
 
 .txtRef {
     font-family: Poppins-Regular;
     font-size: 13px;
     line-height: 1.5;
-    color: #666666;
+    color: $color_grey;
 }
 .txtRef:hover {
     text-decoration: none;
-    color: #57b846;
+    color: $color_green;
 }

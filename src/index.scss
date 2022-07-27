@@ -1,4 +1,5 @@
 @import-normalize;
+@import './stylesConst.scss';
 
 @font-face {
     font-family: Poppins-Regular;
@@ -39,7 +40,7 @@ a {
     font-family: Poppins-Regular;
     font-size: 14px;
     line-height: 1.7;
-    color: #666666;
+    color: $color_grey;
     margin: 0px;
     transition: all 0.4s;
 }
@@ -50,7 +51,7 @@ a:focus {
 
 a:hover {
     text-decoration: none;
-    color: #57b846;
+    color: $color_green;
 }
 
 /*---------------------------------------------*/
@@ -67,7 +68,7 @@ p {
     font-family: Poppins-Regular;
     font-size: 14px;
     line-height: 1.7;
-    color: #666666;
+    color: $color_grey;
     margin: 0px;
 }
 
@@ -94,11 +95,11 @@ input:focus {
 }
 
 input::-webkit-input-placeholder {
-    color: #999999;
+    color: $color_light_grey;
 }
 
 textarea::-webkit-input-placeholder {
-    color: #999999;
+    color: $color_light_grey;
 }
 
 /*---------------------------------------------*/
@@ -169,10 +170,7 @@ iframe {
     border-radius: 13px;
     padding: 4px 25px 4px 10px;
     top: 50%;
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
+ 
     transform: translateY(-50%);
     right: 8px;
     pointer-events: none;
@@ -183,9 +181,7 @@ iframe {
     text-align: left;
     visibility: hidden;
     opacity: 0;
-    -webkit-transition: opacity 0.4s;
-    -o-transition: opacity 0.4s;
-    -moz-transition: opacity 0.4s;
+
     transition: opacity 0.4s;
 } */
 
@@ -197,10 +193,7 @@ iframe {
     color: #c80000;
     font-size: 15px;
     top: 50%;
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
+
     transform: translateY(-50%);
     right: 13px;
 } */

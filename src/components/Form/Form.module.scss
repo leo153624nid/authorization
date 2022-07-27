@@ -1,3 +1,5 @@
+@import '../../stylesConst.scss';
+
 .wrapInput {
     position: relative;
     width: 100%;
@@ -9,10 +11,10 @@
     font-family: Poppins-Medium;
     font-size: 15px;
     line-height: 1.5;
-    color: #666666;
+    color: $color_grey;
     display: block;
     width: 100%;
-    background: #e6e6e6;
+    background: $color_beige;
     height: 50px;
     border-radius: 25px;
     padding: 0 30px 0 68px;
@@ -28,7 +30,7 @@
     width: 100%;
     height: 100%;
     box-shadow: 0px 0px 0px 0px;
-    color: rgba(87, 184, 70, 0.8);
+    color: $color_green;
 }
 
 .inputForm:focus + .focusInputForm {
@@ -61,12 +63,12 @@
     height: 100%;
     padding-left: 35px;
     pointer-events: none;
-    color: #666666;
+    color: $color_grey;
     transition: all 0.4s;
 }
 
 .inputForm:focus + .focusInputForm + .symbolInput {
-    color: #57b846;
+    color: $color_green;
     padding-left: 28px;
 }
 
@@ -82,24 +84,21 @@
     font-family: Montserrat-Bold;
     font-size: 15px;
     line-height: 1.5;
-    color: #fff;
+    color: $color_white;
     text-transform: uppercase;
     width: 100%;
     height: 50px;
     border-radius: 25px;
-    background: #57b846;
+    background: $color_green;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0 25px;
-    -webkit-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -moz-transition: all 0.4s;
     transition: all 0.4s;
 }
 
 .btnForm:hover {
-    background: #333333;
+    background: $color_dark_grey;
 }
 
 .checkbox {
@@ -119,7 +118,7 @@
     width: 100%;
     align-items: center;
     font-size: 15px;
-    color: #666666;
+    color: $color_grey;
     cursor: pointer;
     /* line-height: 140%; */
 }
@@ -129,7 +128,7 @@
     flex: 0 0 24px;
     align-self: flex-start;
     height: 24px;
-    background-color: #e6e6e6;
+    background-color: $color_beige;
     border-radius: 4px;
     margin: 0 10px 0 0;
 }
@@ -142,7 +141,7 @@
     position: absolute;
     top: 4px;
     left: 4px;
-    background-color: #57b846;
+    background-color: $color_green;
     border-radius: 4px;
     transform: scale(0);
 }
