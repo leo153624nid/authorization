@@ -43,15 +43,13 @@ a {
     color: $color_grey;
     margin: 0px;
     transition: all 0.4s;
-}
-
-a:focus {
-    outline: none !important;
-}
-
-a:hover {
-    text-decoration: none;
-    color: $color_green;
+    &:focus {
+        outline: none !important;
+    }
+    &:hover {
+        text-decoration: none;
+        color: $color_green;
+    }
 }
 
 /*---------------------------------------------*/
@@ -107,10 +105,9 @@ button {
     outline: none !important;
     border: none;
     background: transparent;
-}
-
-button:hover {
-    cursor: pointer;
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 iframe {
