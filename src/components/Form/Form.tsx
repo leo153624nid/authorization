@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react'
-import { FaAt } from 'react-icons/fa'
+import { FaAdn, FaAt } from 'react-icons/fa'
 import { BsKeyFill } from 'react-icons/bs'
 import s from './Form.module.scss'
-import { LOGIN, RESET_PASSWORD } from '../../constants'
+import { CREATE_NEW_ACCOUNT, LOGIN, RESET_PASSWORD } from '../../constants'
 
 interface FormProps {
     title: string
@@ -25,6 +25,7 @@ function Form({ title, handleClick }: FormProps) {
             : ''
     }
 
+    const [name, setName] = useState('')
     const [email, setEmail] = useState(emailMemo)
     const [pass, setPass] = useState(passMemo)
     const [memo, setMemo] = useState(true)
@@ -37,6 +38,22 @@ function Form({ title, handleClick }: FormProps) {
 
     return (
         <div>
+            {title === CREATE_NEW_ACCOUNT && (
+                <div className={s.wrapInput}>
+                    <input
+                        className={s.inputForm}
+                        type="text"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        placeholder="name"
+                    />
+                    <span className={s.focusInputForm} />
+                    <span className={s.symbolInput}>
+                        <FaAdn />
+                    </span>
+                </div>
+            )}
+
             <div className={s.wrapInput}>
                 <input
                     className={s.inputForm}
