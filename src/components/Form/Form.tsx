@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { FaAt } from 'react-icons/fa'
 import { BsKeyFill } from 'react-icons/bs'
-import s from './Form.module.css'
+import s from './Form.module.scss'
 import { LOGIN, RESET_PASSWORD } from '../../constants'
 
 interface FormProps {
