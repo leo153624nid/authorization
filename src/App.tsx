@@ -2,7 +2,7 @@
 /* eslint-disable import/no-unresolved */
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import './App.css'
+import './App.scss'
 import HomePage from './pages/HomePage/HomePage'
 import LoginPage from './pages/LoginPage/LoginPage'
 import RecoveryPage from './pages/RecoveryPage/RecoveryPage'
