@@ -7,6 +7,7 @@ import { Navigate } from 'react-router-dom'
 import { getAuth, signOut } from 'firebase/auth'
 import { useAuth, useAppDispatch } from '../../store/hooks/hooks'
 import { removeUser } from '../../store/slices/userSlice'
+import s from './HomePage.module.scss'
 
 function HomePage() {
     const { isAuth, email } = useAuth()
@@ -27,10 +28,11 @@ function HomePage() {
     return isAuth ? (
         <div>
             <h1>Welcome, {email}</h1>
-
-            <button type="button" onClick={onClick}>
-                Log out from {email}
-            </button>
+            <div className={s.wrapBtn}>
+                <button type="button" onClick={onClick} className={s.btn}>
+                    Log out from {email}
+                </button>
+            </div>
         </div>
     ) : (
         <Navigate replace to="/login" />
