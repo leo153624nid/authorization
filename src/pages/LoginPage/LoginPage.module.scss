@@ -61,3 +61,33 @@
         color: $color_green;
     }
 }
+
+@media (max-width: 890px) {
+    .loginPic {
+        width: 43%;
+    }
+
+    .loginForm {
+        width: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    .loginPage {
+        padding: 60px;
+    }
+
+    .loginPic {
+        display: none;
+    }
+
+    .loginForm {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .loginPage {
+        padding: 60px 30px 30px 30px;
+    }
+}
