@@ -2,7 +2,7 @@
 /* eslint-disable import/no-unresolved */
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import s from '../LoginPage/LoginPage.module.css'
+import s from '../LoginPage/LoginPage.module.scss'
 import img from '../../img/img-01.png'
 import Recovery from '../../components/Recovery/Recovery'
 
