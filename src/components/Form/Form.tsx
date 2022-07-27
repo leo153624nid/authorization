@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react'
-import { FaAdn, FaAt } from 'react-icons/fa'
+import { FaAt } from 'react-icons/fa'
 import { BsKeyFill } from 'react-icons/bs'
 import s from './Form.module.scss'
 import { CREATE_NEW_ACCOUNT, LOGIN, RESET_PASSWORD } from '../../constants'
@@ -25,9 +25,9 @@ function Form({ title, handleClick }: FormProps) {
             : ''
     }
 
-    const [name, setName] = useState('')
     const [email, setEmail] = useState(emailMemo)
     const [pass, setPass] = useState(passMemo)
+    const [passAgain, setPassAgain] = useState('')
     const [memo, setMemo] = useState(true)
 
     const handleOnSubmit = () => {
@@ -38,22 +38,6 @@ function Form({ title, handleClick }: FormProps) {
 
     return (
         <div>
-            {title === CREATE_NEW_ACCOUNT && (
-                <div className={s.wrapInput}>
-                    <input
-                        className={s.inputForm}
-                        type="text"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        placeholder="name"
-                    />
-                    <span className={s.focusInputForm} />
-                    <span className={s.symbolInput}>
-                        <FaAdn />
-                    </span>
-                </div>
-            )}
-
             <div className={s.wrapInput}>
                 <input
                     className={s.inputForm}
@@ -76,6 +60,22 @@ function Form({ title, handleClick }: FormProps) {
                         value={pass}
                         onChange={(e) => setPass(e.target.value)}
                         placeholder="password"
+                    />
+                    <span className={s.focusInputForm} />
+                    <span className={s.symbolInput}>
+                        <BsKeyFill />
+                    </span>
+                </div>
+            )}
+
+            {title === CREATE_NEW_ACCOUNT && (
+                <div className={s.wrapInput}>
+                    <input
+                        className={s.inputForm}
+                        type="password"
+                        value={passAgain}
+                        onChange={(e) => setPassAgain(e.target.value)}
+                        placeholder="repeat password"
                     />
                     <span className={s.focusInputForm} />
                     <span className={s.symbolInput}>
