@@ -3,7 +3,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import Registration from '../../components/Registration/Registration'
-import s from '../LoginPage/LoginPage.module.css'
+import s from '../LoginPage/LoginPage.module.scss'
 import img from '../../img/img-01.png'
 
 function RegisterPage() {
