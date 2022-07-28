@@ -38,7 +38,7 @@ html {
 /*---------------------------------------------*/
 a {
     font-family: Poppins-Regular;
-    font-size: 14px;
+    font-size: $font_size_norm;
     line-height: 1.7;
     color: $color_grey;
     margin: 0px;
@@ -64,7 +64,7 @@ h6 {
 
 p {
     font-family: Poppins-Regular;
-    font-size: 14px;
+    font-size: $font_size_norm;
     line-height: 1.7;
     color: $color_grey;
     margin: 0px;
