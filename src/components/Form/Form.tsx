@@ -8,6 +8,7 @@ import s from './Form.module.scss'
 import {
     CREATE_NEW_ACCOUNT,
     emailValidator,
+    LOGIN,
     passValidator,
     RESET_PASSWORD,
 } from '../../constants'
@@ -26,6 +27,26 @@ function Form({ title, emailMemo, passMemo, handleClick }: FormProps) {
     const pass = useInput(passMemo, passValidator)
     const passAgain = useInput('', passValidator)
     const [memo, setMemo] = useState(true)
+
+    const invalidLoginForm = !email.inputValid || !pass.inputValid
+    const invalidRegistForm =
+        !email.inputValid || !pass.inputValid || !passAgain.inputValid
+    const invalidRecoveryForm = !email.inputValid
+
+    let invalidForm = true
+    switch (title) {
+        case LOGIN:
+            invalidForm = invalidLoginForm
+            break
+        case CREATE_NEW_ACCOUNT:
+            invalidForm = invalidRegistForm
+            break
+        case RESET_PASSWORD:
+            invalidForm = invalidRecoveryForm
+            break
+        default:
+            break
+    }
 
     // Функция отправки формы
     const handleOnSubmit = () => {
@@ -165,9 +186,10 @@ function Form({ title, emailMemo, passMemo, handleClick }: FormProps) {
 
             <div className={s.wrapBtnForm}>
                 <button
-                    className={s.btnForm}
+                    className={invalidForm ? s.btnDisabled : s.btnForm}
                     type="submit"
                     onClick={handleOnSubmit}
+                    disabled={invalidForm}
                 >
                     {title}
                 </button>

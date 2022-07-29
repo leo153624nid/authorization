@@ -23,6 +23,7 @@ export const useValidations = (value: string, validations: Validator) => {
     const [passError, setPassError] = useState('')
     const [isEmpty, setIsEmpty] = useState('Field is required')
     const [emailError, setEmailError] = useState('')
+    const [inputValid, setInputValid] = useState(false)
 
     useEffect(() => {
         // eslint-disable-next-line no-restricted-syntax, guard-for-in
@@ -58,7 +59,15 @@ export const useValidations = (value: string, validations: Validator) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [value])
 
-    return { passError, isEmpty, emailError }
+    useEffect(() => {
+        if (passError || emailError || isEmpty) {
+            setInputValid(false)
+        } else {
+            setInputValid(true)
+        }
+    }, [passError, emailError, isEmpty])
+
+    return { passError, isEmpty, emailError, inputValid }
 }
 
 export const useInput = (initialValue: string, validations: Validator) => {
