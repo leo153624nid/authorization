@@ -58,12 +58,13 @@ function Form({ title, emailMemo, passMemo, handleClick }: FormProps) {
                 </span>
                 <span
                     className={
-                        email.isEmpty && email.isDirty
+                        (email.isEmpty && email.isDirty) ||
+                        (email.emailError && email.isDirty)
                             ? s.alertValidate
                             : s.hidden
                     }
                 >
-                    {email.isEmpty}
+                    {email.isEmpty || email.emailError}
                 </span>
             </div>
 
@@ -90,30 +91,19 @@ function Form({ title, emailMemo, passMemo, handleClick }: FormProps) {
                     </span>
                     <span
                         className={
-                            pass.isEmpty && pass.isDirty
+                            (pass.isEmpty && pass.isDirty) ||
+                            (pass.minLengthError && pass.isDirty)
                                 ? s.alertValidate
                                 : s.hidden
                         }
                     >
-                        {pass.isEmpty}
-                    </span>
-                    <span
-                        className={
-                            pass.minLengthError && pass.isDirty
-                                ? s.alertValidate
-                                : s.hidden
-                        }
-                    >
-                        Minimum 3 symbols
+                        {pass.isEmpty || pass.minLengthError}
                     </span>
                 </div>
             )}
 
             {title === CREATE_NEW_ACCOUNT && (
-                <div
-                    className={s.wrapInput}
-                    data-validate="Password is required"
-                >
+                <div className={s.wrapInput}>
                     <input
                         className={s.inputForm}
                         type="password"
