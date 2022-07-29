@@ -174,11 +174,9 @@ function Form({ title, emailMemo, passMemo, handleClick }: FormProps) {
                                 : s.hidden
                         }
                     >
-                        {
-                            passAgain.isEmpty ||
-                                passAgain.passError ||
-                                'Passwords do not match' // TODO
-                        }
+                        {passAgain.isEmpty ||
+                            passAgain.passError ||
+                            'Passwords do not match'}
                     </span>
                 </div>
             )}
