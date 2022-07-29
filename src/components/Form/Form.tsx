@@ -2,8 +2,6 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react'
-import { FaExclamation } from 'react-icons/fa'
-import { BsKeyFill } from 'react-icons/bs'
 import s from './Form.module.scss'
 import {
     CREATE_NEW_ACCOUNT,
@@ -15,6 +13,7 @@ import {
 import { useInput } from '../../store/hooks/hooks'
 import InputEmail from './InputEmail/InputEmail'
 import InputPass from './InputPass/InputPass'
+import InputPassAgain from './InputPassAgain/InputPassAgain'
 
 interface FormProps {
     title: string
@@ -71,47 +70,7 @@ function Form({ title, emailMemo, passMemo, handleClick }: FormProps) {
             {title !== RESET_PASSWORD && <InputPass pass={pass} />}
 
             {title === CREATE_NEW_ACCOUNT && (
-                <div className={s.wrapInput}>
-                    <input
-                        className={s.inputForm}
-                        type="password"
-                        value={passAgain.value}
-                        onChange={(e) => passAgain.onChange(e)}
-                        onBlur={() => passAgain.onBlur()}
-                        onFocus={() => passAgain.onFocus()}
-                        placeholder="repeat password"
-                    />
-                    <span className={s.focusInputForm} />
-                    <span className={s.symbolInput}>
-                        <BsKeyFill />
-                    </span>
-                    <span
-                        className={
-                            (passAgain.isEmpty && passAgain.isDirty) ||
-                            (passAgain.passError && passAgain.isDirty) ||
-                            (pass.value !== passAgain.value &&
-                                passAgain.isDirty)
-                                ? s.alert
-                                : s.hidden
-                        }
-                    >
-                        <FaExclamation />
-                    </span>
-                    <span
-                        className={
-                            (passAgain.isEmpty && passAgain.isDirty) ||
-                            (passAgain.passError && passAgain.isDirty) ||
-                            (pass.value !== passAgain.value &&
-                                passAgain.isDirty)
-                                ? s.alertValidate
-                                : s.hidden
-                        }
-                    >
-                        {passAgain.isEmpty ||
-                            passAgain.passError ||
-                            'Passwords do not match'}
-                    </span>
-                </div>
+                <InputPassAgain pass={pass} passAgain={passAgain} />
             )}
 
             {title !== RESET_PASSWORD && (
