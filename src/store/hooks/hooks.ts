@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch, TypedUseSelectorHook } from 'react-redux'
 import { Validator } from '../../constants'
-import { ValidateEmail } from '../../validators/validators'
+import { ValidateEmail, ValidatePass } from '../../validators/validators'
 import type { RootState, AppDispatch } from '../reduxStore'
 
 export const useAppDispatch = () => useDispatch<AppDispatch>()
@@ -20,7 +20,7 @@ export const useAuth = () => {
 }
 
 export const useValidations = (value: string, validations: Validator) => {
-    const [minLengthError, setMinLengthError] = useState('')
+    const [passError, setPassError] = useState('')
     const [isEmpty, setIsEmpty] = useState('Field is required')
     const [emailError, setEmailError] = useState('')
 
@@ -28,11 +28,13 @@ export const useValidations = (value: string, validations: Validator) => {
         // eslint-disable-next-line no-restricted-syntax, guard-for-in
         for (const validation in validations) {
             switch (validation) {
-                case 'minLength':
-                    if (value.length < validations[validation]) {
-                        setMinLengthError('Minimum 3 symbols')
+                case 'passError':
+                    if (ValidatePass(value)) {
+                        setPassError('')
                     } else {
-                        setMinLengthError('')
+                        setPassError(
+                            'Min 6 characters, at least one numeric digit, one uppercase, one lowercase letter'
+                        )
                     }
                     break
                 case 'isEmpty':
@@ -56,7 +58,7 @@ export const useValidations = (value: string, validations: Validator) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [value])
 
-    return { minLengthError, isEmpty, emailError }
+    return { passError, isEmpty, emailError }
 }
 
 export const useInput = (initialValue: string, validations: Validator) => {
