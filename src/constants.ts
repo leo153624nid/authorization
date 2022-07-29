@@ -9,7 +9,7 @@ export const emailValidator = {
 
 export const passValidator = {
     isEmpty: true,
-    minLength: 3,
+    passError: true,
 }
 
 export type ValidatorEmail = typeof emailValidator
