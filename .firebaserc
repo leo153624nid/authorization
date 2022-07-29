@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "authorization-d9f5f",
+    "authorization": "authorization-d9f5f"
+  },
+  "targets": {},
+  "etags": {}
+}
