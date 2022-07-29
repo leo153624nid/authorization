@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react'
-import { FaAt } from 'react-icons/fa'
+import { FaAt, FaExclamation } from 'react-icons/fa'
 import { BsKeyFill } from 'react-icons/bs'
 import s from './Form.module.scss'
 import { CREATE_NEW_ACCOUNT, LOGIN, RESET_PASSWORD } from '../../constants'
@@ -38,7 +38,10 @@ function Form({ title, handleClick }: FormProps) {
 
     return (
         <div>
-            <div className={s.wrapInput}>
+            <div
+                className={`${s.wrapInput} ${s.alertValidate}`}
+                data-validate="Valid email is required: ex@abc.xyz"
+            >
                 <input
                     className={s.inputForm}
                     type="email"
@@ -50,10 +53,16 @@ function Form({ title, handleClick }: FormProps) {
                 <span className={s.symbolInput}>
                     <FaAt />
                 </span>
+                <span className={s.alert}>
+                    <FaExclamation />
+                </span>
             </div>
 
             {title !== RESET_PASSWORD && (
-                <div className={s.wrapInput}>
+                <div
+                    className={s.wrapInput}
+                    data-validate="Password is required"
+                >
                     <input
                         className={s.inputForm}
                         type="password"
@@ -69,7 +78,10 @@ function Form({ title, handleClick }: FormProps) {
             )}
 
             {title === CREATE_NEW_ACCOUNT && (
-                <div className={s.wrapInput}>
+                <div
+                    className={s.wrapInput}
+                    data-validate="Password is required"
+                >
                     <input
                         className={s.inputForm}
                         type="password"
