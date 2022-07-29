@@ -53,7 +53,7 @@ function Form({ title, handleClick }: FormProps) {
                 <span className={s.symbolInput}>
                     <FaAt />
                 </span>
-                <span className={s.alert}>
+                <span className={`${s.alert} ${s.hidden}`}>
                     <FaExclamation />
                 </span>
             </div>
@@ -74,6 +74,9 @@ function Form({ title, handleClick }: FormProps) {
                     <span className={s.symbolInput}>
                         <BsKeyFill />
                     </span>
+                    <span className={`${s.alert} ${s.hidden}`}>
+                        <FaExclamation />
+                    </span>
                 </div>
             )}
 
@@ -92,6 +95,9 @@ function Form({ title, handleClick }: FormProps) {
                     <span className={s.focusInputForm} />
                     <span className={s.symbolInput}>
                         <BsKeyFill />
+                    </span>
+                    <span className={`${s.alert} ${s.hidden}`}>
+                        <FaExclamation />
                     </span>
                 </div>
             )}
