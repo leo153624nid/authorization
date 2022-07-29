@@ -27,6 +27,7 @@ function Form({ title, emailMemo, passMemo, handleClick }: FormProps) {
     const passAgain = useInput('', passValidator)
     const [memo, setMemo] = useState(true)
 
+    // Функция отправки формы
     const handleOnSubmit = () => {
         if (title === RESET_PASSWORD) localStorage.removeItem('password')
 
@@ -35,17 +36,13 @@ function Form({ title, emailMemo, passMemo, handleClick }: FormProps) {
 
     return (
         <div>
-            <div
-                className={s.wrapInput}
-                // className={`${s.wrapInput} ${s.alertValidate}`}
-                data-validate="Valid email is required: ex@abc.xyz"
-            >
+            <div className={s.wrapInput}>
                 <input
                     className={s.inputForm}
                     type="email"
                     value={email.value}
-                    onChange={email.onChange}
-                    onBlur={email.onBlur}
+                    onChange={(e) => email.onChange(e)}
+                    onBlur={() => email.onBlur()}
                     placeholder="email"
                 />
                 <span className={s.focusInputForm} />
@@ -65,31 +62,49 @@ function Form({ title, emailMemo, passMemo, handleClick }: FormProps) {
                             ? s.alertValidate
                             : s.hidden
                     }
-                    data-validate="Field is required"
                 >
                     Field is required
                 </span>
             </div>
 
             {title !== RESET_PASSWORD && (
-                <div
-                    className={s.wrapInput}
-                    data-validate="Password is required"
-                >
+                <div className={s.wrapInput}>
                     <input
                         className={s.inputForm}
                         type="password"
                         value={pass.value}
-                        onChange={pass.onChange}
-                        onBlur={pass.onBlur}
+                        onChange={(e) => pass.onChange(e)}
+                        onBlur={() => pass.onBlur()}
                         placeholder="password"
                     />
                     <span className={s.focusInputForm} />
                     <span className={s.symbolInput}>
                         <BsKeyFill />
                     </span>
-                    <span className={`${s.alert} ${s.hidden}`}>
+                    <span
+                        className={
+                            pass.isEmpty && pass.isDirty ? s.alert : s.hidden
+                        }
+                    >
                         <FaExclamation />
+                    </span>
+                    <span
+                        className={
+                            pass.isEmpty && pass.isDirty
+                                ? s.alertValidate
+                                : s.hidden
+                        }
+                    >
+                        Field is required
+                    </span>
+                    <span
+                        className={
+                            pass.minLengthError && pass.isDirty
+                                ? s.alertValidate
+                                : s.hidden
+                        }
+                    >
+                        Minimum 3 symbols
                     </span>
                 </div>
             )}
@@ -103,16 +118,40 @@ function Form({ title, emailMemo, passMemo, handleClick }: FormProps) {
                         className={s.inputForm}
                         type="password"
                         value={passAgain.value}
-                        onChange={passAgain.onChange}
-                        onBlur={passAgain.onBlur}
+                        onChange={(e) => passAgain.onChange(e)}
+                        onBlur={() => passAgain.onBlur()}
                         placeholder="repeat password"
                     />
                     <span className={s.focusInputForm} />
                     <span className={s.symbolInput}>
                         <BsKeyFill />
                     </span>
-                    <span className={`${s.alert} ${s.hidden}`}>
+                    <span
+                        className={
+                            passAgain.isEmpty && passAgain.isDirty
+                                ? s.alert
+                                : s.hidden
+                        }
+                    >
                         <FaExclamation />
+                    </span>
+                    <span
+                        className={
+                            passAgain.isEmpty && passAgain.isDirty
+                                ? s.alertValidate
+                                : s.hidden
+                        }
+                    >
+                        Field is required
+                    </span>
+                    <span
+                        className={
+                            passAgain.minLengthError && passAgain.isDirty
+                                ? s.alertValidate
+                                : s.hidden
+                        }
+                    >
+                        Minimum 3 symbols
                     </span>
                 </div>
             )}
