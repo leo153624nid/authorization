@@ -14,6 +14,7 @@ function Registration() {
     const dispatch = useAppDispatch()
     const navigate = useNavigate()
 
+    // Функция регистрации пользователя по email & password
     const handleRegister = async (
         email: string,
         pass: string,
@@ -46,7 +47,14 @@ function Registration() {
         }
     }
 
-    return <Form title={CREATE_NEW_ACCOUNT} handleClick={handleRegister} />
+    return (
+        <Form
+            title={CREATE_NEW_ACCOUNT}
+            emailMemo=""
+            passMemo=""
+            handleClick={handleRegister}
+        />
+    )
 }
 
 export default Registration
