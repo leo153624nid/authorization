@@ -98,8 +98,10 @@
     &:hover {
         background: $color_dark_grey;
     }
-    &::after {
-        top: 10px;
+    &:active {
+        background: $color_grey;
+        margin-top: 6px;
+        transition: all 0.4s;
     }
 }
 
