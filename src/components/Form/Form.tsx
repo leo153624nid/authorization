@@ -63,7 +63,7 @@ function Form({ title, emailMemo, passMemo, handleClick }: FormProps) {
                             : s.hidden
                     }
                 >
-                    Field is required
+                    {email.isEmpty}
                 </span>
             </div>
 
@@ -95,7 +95,7 @@ function Form({ title, emailMemo, passMemo, handleClick }: FormProps) {
                                 : s.hidden
                         }
                     >
-                        Field is required
+                        {pass.isEmpty}
                     </span>
                     <span
                         className={
@@ -142,7 +142,7 @@ function Form({ title, emailMemo, passMemo, handleClick }: FormProps) {
                                 : s.hidden
                         }
                     >
-                        Field is required
+                        {passAgain.isEmpty}
                     </span>
                     <span
                         className={
@@ -151,7 +151,7 @@ function Form({ title, emailMemo, passMemo, handleClick }: FormProps) {
                                 : s.hidden
                         }
                     >
-                        Minimum 3 symbols
+                        {passAgain.minLengthError}
                     </span>
                 </div>
             )}
