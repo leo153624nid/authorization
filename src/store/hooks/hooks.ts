@@ -108,5 +108,6 @@ export type PassInputType = {
     pass: InputType
 }
 export type PassAgainInputType = {
+    pass: InputType
     passAgain: InputType
 }
