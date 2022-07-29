@@ -28,6 +28,7 @@ function Form({ title, emailMemo, passMemo, handleClick }: FormProps) {
     const passAgain = useInput('', passValidator)
     const [memo, setMemo] = useState(true)
 
+    // Назначаем значение валидности для каждого вида формы
     const invalidLoginForm = !email.inputValid || !pass.inputValid
     const invalidRegistForm =
         !email.inputValid ||
@@ -35,8 +36,7 @@ function Form({ title, emailMemo, passMemo, handleClick }: FormProps) {
         !passAgain.inputValid ||
         pass.value !== passAgain.value
     const invalidRecoveryForm = !email.inputValid
-
-    // Назначаем значение валидности для каждого вида формы
+    // Итоговое значение валидности
     let invalidForm = true
     switch (title) {
         case LOGIN:
