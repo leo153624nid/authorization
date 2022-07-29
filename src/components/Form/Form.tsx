@@ -52,7 +52,10 @@ function Form({ title, emailMemo, passMemo, handleClick }: FormProps) {
                 </span>
                 <span
                     className={
-                        email.isEmpty && email.isDirty ? s.alert : s.hidden
+                        (email.isEmpty && email.isDirty) ||
+                        (email.emailError && email.isDirty)
+                            ? s.alert
+                            : s.hidden
                     }
                 >
                     <FaExclamation />
@@ -86,7 +89,10 @@ function Form({ title, emailMemo, passMemo, handleClick }: FormProps) {
                     </span>
                     <span
                         className={
-                            pass.isEmpty && pass.isDirty ? s.alert : s.hidden
+                            (pass.isEmpty && pass.isDirty) ||
+                            (pass.passError && pass.isDirty)
+                                ? s.alert
+                                : s.hidden
                         }
                     >
                         <FaExclamation />
@@ -94,12 +100,12 @@ function Form({ title, emailMemo, passMemo, handleClick }: FormProps) {
                     <span
                         className={
                             (pass.isEmpty && pass.isDirty) ||
-                            (pass.minLengthError && pass.isDirty)
+                            (pass.passError && pass.isDirty)
                                 ? s.alertValidate
                                 : s.hidden
                         }
                     >
-                        {pass.isEmpty || pass.minLengthError}
+                        {pass.isEmpty || pass.passError}
                     </span>
                 </div>
             )}
@@ -121,7 +127,8 @@ function Form({ title, emailMemo, passMemo, handleClick }: FormProps) {
                     </span>
                     <span
                         className={
-                            passAgain.isEmpty && passAgain.isDirty
+                            (passAgain.isEmpty && passAgain.isDirty) ||
+                            (passAgain.passError && passAgain.isDirty)
                                 ? s.alert
                                 : s.hidden
                         }
@@ -131,12 +138,12 @@ function Form({ title, emailMemo, passMemo, handleClick }: FormProps) {
                     <span
                         className={
                             (passAgain.isEmpty && passAgain.isDirty) ||
-                            (passAgain.minLengthError && passAgain.isDirty)
+                            (passAgain.passError && passAgain.isDirty)
                                 ? s.alertValidate
                                 : s.hidden
                         }
                     >
-                        {passAgain.isEmpty || passAgain.minLengthError}
+                        {passAgain.isEmpty || passAgain.passError}
                     </span>
                 </div>
             )}
