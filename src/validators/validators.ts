@@ -1,11 +1,12 @@
-export const requiredField = (value: string) => {
-    if (value) return undefined
+/* eslint-disable import/prefer-default-export */
+// export const requiredField = (value: string) => {
+//     if (value) return undefined
 
-    return 'Field is required'
-}
+//     return 'Field is required'
+// }
 
-export const emailValidate = (value: string) => {
-    if (value) return undefined
-
-    return 'Valid email is required: ex@abc.xyz'
+export const ValidateEmail = (email: string) => {
+    // eslint-disable-next-line no-useless-escape
+    const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+    return mailformat.test(String(email).toLocaleLowerCase())
 }
