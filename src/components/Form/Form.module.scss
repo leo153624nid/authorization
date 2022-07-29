@@ -160,7 +160,7 @@
     pointer-events: none;
     color: $color_red;
     transition: all 0.4s;
-    z-index: 2;
+    z-index: 3;
 }
 
 .hidden {
@@ -186,13 +186,6 @@
     font-size: $font_size_min;
     line-height: 1.4;
     text-align: left;
-    // visibility: hidden;
-    // opacity: 0;
-    // transition: opacity 0.4s;
-    &:hover {
-        transition: opacity 0.4s;
-        opacity: 0;
-    }
 }
 
 // .alertValidate:hover {
