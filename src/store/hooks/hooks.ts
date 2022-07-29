@@ -25,6 +25,7 @@ export const useValidations = (value: string, validations: Validator) => {
     const [emailError, setEmailError] = useState('')
     const [inputValid, setInputValid] = useState(false)
 
+    // Проверка введенного значения инпута на ошибки
     useEffect(() => {
         // eslint-disable-next-line no-restricted-syntax, guard-for-in
         for (const validation in validations) {
@@ -59,6 +60,7 @@ export const useValidations = (value: string, validations: Validator) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [value])
 
+    // Проверка общей валидности инпута
     useEffect(() => {
         if (passError || emailError || isEmpty) {
             setInputValid(false)
@@ -70,6 +72,7 @@ export const useValidations = (value: string, validations: Validator) => {
     return { passError, isEmpty, emailError, inputValid }
 }
 
+// Хук для контролла и валидация инпута
 export const useInput = (initialValue: string, validations: Validator) => {
     const [value, setValue] = useState(initialValue)
     const [isDirty, setIsDirty] = useState(false)
