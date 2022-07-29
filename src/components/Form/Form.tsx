@@ -52,8 +52,22 @@ function Form({ title, emailMemo, passMemo, handleClick }: FormProps) {
                 <span className={s.symbolInput}>
                     <FaAt />
                 </span>
-                <span className={`${s.alert} ${s.hidden}`}>
+                <span
+                    className={
+                        email.isEmpty && email.isDirty ? s.alert : s.hidden
+                    }
+                >
                     <FaExclamation />
+                </span>
+                <span
+                    className={
+                        email.isEmpty && email.isDirty
+                            ? s.alertValidate
+                            : s.hidden
+                    }
+                    data-validate="Field is required"
+                >
+                    Field is required
                 </span>
             </div>
 
