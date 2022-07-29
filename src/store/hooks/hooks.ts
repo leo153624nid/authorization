@@ -72,11 +72,16 @@ export const useInput = (initialValue: string, validations: Validator) => {
         setIsDirty(true)
     }
 
+    const onFocus = () => {
+        setIsDirty(false)
+    }
+
     return {
         value,
         isDirty,
         onChange,
         onBlur,
+        onFocus,
         ...valid,
     }
 }
