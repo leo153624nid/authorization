@@ -36,6 +36,7 @@ function Form({ title, emailMemo, passMemo, handleClick }: FormProps) {
         pass.value !== passAgain.value
     const invalidRecoveryForm = !email.inputValid
 
+    // Назначаем значение валидности для каждого вида формы
     let invalidForm = true
     switch (title) {
         case LOGIN:
