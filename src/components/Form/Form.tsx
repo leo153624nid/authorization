@@ -43,6 +43,7 @@ function Form({ title, emailMemo, passMemo, handleClick }: FormProps) {
                     value={email.value}
                     onChange={(e) => email.onChange(e)}
                     onBlur={() => email.onBlur()}
+                    onFocus={() => email.onFocus()}
                     placeholder="email"
                 />
                 <span className={s.focusInputForm} />
@@ -76,6 +77,7 @@ function Form({ title, emailMemo, passMemo, handleClick }: FormProps) {
                         value={pass.value}
                         onChange={(e) => pass.onChange(e)}
                         onBlur={() => pass.onBlur()}
+                        onFocus={() => pass.onFocus()}
                         placeholder="password"
                     />
                     <span className={s.focusInputForm} />
@@ -110,6 +112,7 @@ function Form({ title, emailMemo, passMemo, handleClick }: FormProps) {
                         value={passAgain.value}
                         onChange={(e) => passAgain.onChange(e)}
                         onBlur={() => passAgain.onBlur()}
+                        onFocus={() => passAgain.onFocus()}
                         placeholder="repeat password"
                     />
                     <span className={s.focusInputForm} />
@@ -127,21 +130,13 @@ function Form({ title, emailMemo, passMemo, handleClick }: FormProps) {
                     </span>
                     <span
                         className={
-                            passAgain.isEmpty && passAgain.isDirty
+                            (passAgain.isEmpty && passAgain.isDirty) ||
+                            (passAgain.minLengthError && passAgain.isDirty)
                                 ? s.alertValidate
                                 : s.hidden
                         }
                     >
-                        {passAgain.isEmpty}
-                    </span>
-                    <span
-                        className={
-                            passAgain.minLengthError && passAgain.isDirty
-                                ? s.alertValidate
-                                : s.hidden
-                        }
-                    >
-                        {passAgain.minLengthError}
+                        {passAgain.isEmpty || passAgain.minLengthError}
                     </span>
                 </div>
             )}
