@@ -105,9 +105,6 @@
     }
 }
 
-.checkbox {
-}
-
 .checkBoxInput {
     display: none;
 }
@@ -170,7 +167,6 @@
 // Alert validate
 
 .alertValidate {
-    // content: attr(data-validate);
     position: absolute;
     max-width: 70%;
     background-color: $color_white;
@@ -186,6 +182,8 @@
     font-size: $font_size_min;
     line-height: 1.4;
     text-align: left;
+    overflow: visible;
+    z-index: 2;
 }
 
 // .alertValidate:hover {
