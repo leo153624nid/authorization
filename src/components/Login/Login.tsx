@@ -14,6 +14,15 @@ function Login() {
     const dispatch = useAppDispatch()
     const navigate = useNavigate()
 
+    // Проверяем, запомнен ли пользователь в браузере
+    const emailMemo = localStorage.getItem('email')
+        ? (localStorage.getItem('email') as string)
+        : ''
+    const passMemo = localStorage.getItem('password')
+        ? (localStorage.getItem('password') as string)
+        : ''
+
+    // Функция входа пользователя по email & password
     const handleLogin = async (email: string, pass: string, memo: boolean) => {
         try {
             const auth = getAuth()
@@ -42,7 +51,14 @@ function Login() {
         }
     }
 
-    return <Form title={LOGIN} handleClick={handleLogin} />
+    return (
+        <Form
+            title={LOGIN}
+            emailMemo={emailMemo}
+            passMemo={passMemo}
+            handleClick={handleLogin}
+        />
+    )
 }
 
 export default Login
