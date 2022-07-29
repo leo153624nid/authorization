@@ -3,28 +3,17 @@ import React, { useState } from 'react'
 import { FaAt, FaExclamation } from 'react-icons/fa'
 import { BsKeyFill } from 'react-icons/bs'
 import s from './Form.module.scss'
-import { CREATE_NEW_ACCOUNT, LOGIN, RESET_PASSWORD } from '../../constants'
+import { CREATE_NEW_ACCOUNT, RESET_PASSWORD } from '../../constants'
 
 interface FormProps {
     title: string
+    emailMemo: string
+    passMemo: string
     // eslint-disable-next-line no-unused-vars
     handleClick: (email: string, pass: string, memo: boolean) => void
 }
 
-function Form({ title, handleClick }: FormProps) {
-    let emailMemo = ''
-    let passMemo = ''
-
-    // Проверяем, запомнен ли пользователь в браузере при логинизации
-    if (title === LOGIN) {
-        emailMemo = localStorage.getItem('email')
-            ? (localStorage.getItem('email') as string)
-            : ''
-        passMemo = localStorage.getItem('password')
-            ? (localStorage.getItem('password') as string)
-            : ''
-    }
-
+function Form({ title, emailMemo, passMemo, handleClick }: FormProps) {
     const [email, setEmail] = useState(emailMemo)
     const [pass, setPass] = useState(passMemo)
     const [passAgain, setPassAgain] = useState('')
@@ -39,7 +28,8 @@ function Form({ title, handleClick }: FormProps) {
     return (
         <div>
             <div
-                className={`${s.wrapInput} ${s.alertValidate}`}
+                className={s.wrapInput}
+                // className={`${s.wrapInput} ${s.alertValidate}`}
                 data-validate="Valid email is required: ex@abc.xyz"
             >
                 <input
