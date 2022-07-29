@@ -49,14 +49,17 @@ function Form({ title, emailMemo, passMemo, handleClick }: FormProps) {
     }
 
     // Функция отправки формы
-    const handleOnSubmit = () => {
+    const handleOnSubmit = (
+        e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+    ) => {
+        e.preventDefault()
         if (title === RESET_PASSWORD) localStorage.removeItem('password')
 
         handleClick(email.value, pass.value, memo)
     }
 
     return (
-        <div>
+        <form>
             <div className={s.wrapInput}>
                 <input
                     className={s.inputForm}
@@ -188,13 +191,13 @@ function Form({ title, emailMemo, passMemo, handleClick }: FormProps) {
                 <button
                     className={invalidForm ? s.btnDisabled : s.btnForm}
                     type="submit"
-                    onClick={handleOnSubmit}
+                    onClick={(e) => handleOnSubmit(e)}
                     disabled={invalidForm}
                 >
                     {title}
                 </button>
             </div>
-        </div>
+        </form>
     )
 }
 
