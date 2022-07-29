@@ -99,3 +99,14 @@ export const useInput = (initialValue: string, validations: Validator) => {
         ...valid,
     }
 }
+
+export type InputType = ReturnType<typeof useInput>
+export type EmailInputType = {
+    email: InputType
+}
+export type PassInputType = {
+    pass: InputType
+}
+export type PassAgainInputType = {
+    passAgain: InputType
+}
