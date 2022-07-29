@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch, TypedUseSelectorHook } from 'react-redux'
 import { Validator } from '../../constants'
+import { ValidateEmail } from '../../validators/validators'
 import type { RootState, AppDispatch } from '../reduxStore'
 
 export const useAppDispatch = () => useDispatch<AppDispatch>()
@@ -21,6 +22,7 @@ export const useAuth = () => {
 export const useValidations = (value: string, validations: Validator) => {
     const [minLengthError, setMinLengthError] = useState('')
     const [isEmpty, setIsEmpty] = useState('Field is required')
+    const [emailError, setEmailError] = useState('')
 
     useEffect(() => {
         // eslint-disable-next-line no-restricted-syntax, guard-for-in
@@ -40,6 +42,13 @@ export const useValidations = (value: string, validations: Validator) => {
                         setIsEmpty('Field is required')
                     }
                     break
+                case 'emailError':
+                    if (ValidateEmail(value)) {
+                        setEmailError('')
+                    } else {
+                        setEmailError('Valid email is required: ex@abc.xy')
+                    }
+                    break
                 default:
                     break
             }
@@ -47,7 +56,7 @@ export const useValidations = (value: string, validations: Validator) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [value])
 
-    return { minLengthError, isEmpty }
+    return { minLengthError, isEmpty, emailError }
 }
 
 export const useInput = (initialValue: string, validations: Validator) => {
