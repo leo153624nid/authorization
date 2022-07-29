@@ -5,7 +5,12 @@ import React, { useState } from 'react'
 import { FaAt, FaExclamation } from 'react-icons/fa'
 import { BsKeyFill } from 'react-icons/bs'
 import s from './Form.module.scss'
-import { CREATE_NEW_ACCOUNT, RESET_PASSWORD } from '../../constants'
+import {
+    CREATE_NEW_ACCOUNT,
+    emailValidator,
+    passValidator,
+    RESET_PASSWORD,
+} from '../../constants'
 import { useInput } from '../../store/hooks/hooks'
 
 interface FormProps {
@@ -17,9 +22,9 @@ interface FormProps {
 }
 
 function Form({ title, emailMemo, passMemo, handleClick }: FormProps) {
-    const email = useInput(emailMemo)
-    const pass = useInput(passMemo)
-    const passAgain = useInput('')
+    const email = useInput(emailMemo, emailValidator)
+    const pass = useInput(passMemo, passValidator)
+    const passAgain = useInput('', passValidator)
     const [memo, setMemo] = useState(true)
 
     const handleOnSubmit = () => {
