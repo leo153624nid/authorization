@@ -4,7 +4,7 @@ export const RESET_PASSWORD = 'reset password'
 
 export const emailValidator = {
     isEmpty: true,
-    minLength: 3,
+    emailError: true,
 }
 
 export const passValidator = {
@@ -12,7 +12,6 @@ export const passValidator = {
     minLength: 3,
 }
 
-export interface Validator {
-    isEmpty: boolean
-    minLength: number
-}
+export type ValidatorEmail = typeof emailValidator
+export type ValidatorPass = typeof passValidator
+export type Validator = ValidatorEmail | ValidatorPass
