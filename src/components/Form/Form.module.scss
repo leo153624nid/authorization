@@ -160,6 +160,7 @@
     pointer-events: none;
     color: $color_red;
     transition: all 0.4s;
+    z-index: 2;
 }
 
 .hidden {
@@ -168,8 +169,8 @@
 
 // Alert validate
 
-.alertValidate::before {
-    content: attr(data-validate);
+.alertValidate {
+    // content: attr(data-validate);
     position: absolute;
     max-width: 70%;
     background-color: $color_white;
@@ -185,15 +186,46 @@
     font-size: $font_size_min;
     line-height: 1.4;
     text-align: left;
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.4s;
+    // visibility: hidden;
+    // opacity: 0;
+    // transition: opacity 0.4s;
+    &:hover {
+        transition: opacity 0.4s;
+        opacity: 0;
+    }
 }
 
-.alertValidate:hover:before {
-    visibility: visible;
-    opacity: 0;
-}
+// .alertValidate:hover {
+//     visibility: visible;
+//     opacity: 0;
+// }
+
+// .alertValidate::before {
+//     content: attr(data-validate);
+//     position: absolute;
+//     max-width: 70%;
+//     background-color: $color_white;
+//     border: 1px solid $color_red;
+//     border-radius: 13px;
+//     padding: 4px 25px 4px 10px;
+//     top: 50%;
+//     transform: translateY(-50%);
+//     right: 8px;
+//     pointer-events: none;
+//     font-family: Poppins-Medium;
+//     color: $color_red;
+//     font-size: $font_size_min;
+//     line-height: 1.4;
+//     text-align: left;
+//     visibility: hidden;
+//     opacity: 0;
+//     transition: opacity 0.4s;
+// }
+
+// .alertValidate:hover:before {
+//     visibility: visible;
+//     opacity: 0;
+// }
 
 // .alertValidate::after {
 //     content: $alert;
@@ -208,7 +240,6 @@
 // }
 
 // Responsive
-
 @media (max-width: 992px) {
     .alertValidate::before {
         visibility: visible;
