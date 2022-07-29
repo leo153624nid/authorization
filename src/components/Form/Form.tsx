@@ -30,7 +30,10 @@ function Form({ title, emailMemo, passMemo, handleClick }: FormProps) {
 
     const invalidLoginForm = !email.inputValid || !pass.inputValid
     const invalidRegistForm =
-        !email.inputValid || !pass.inputValid || !passAgain.inputValid
+        !email.inputValid ||
+        !pass.inputValid ||
+        !passAgain.inputValid ||
+        pass.value !== passAgain.value
     const invalidRecoveryForm = !email.inputValid
 
     let invalidForm = true
@@ -152,7 +155,9 @@ function Form({ title, emailMemo, passMemo, handleClick }: FormProps) {
                     <span
                         className={
                             (passAgain.isEmpty && passAgain.isDirty) ||
-                            (passAgain.passError && passAgain.isDirty)
+                            (passAgain.passError && passAgain.isDirty) ||
+                            (pass.value !== passAgain.value &&
+                                passAgain.isDirty)
                                 ? s.alert
                                 : s.hidden
                         }
@@ -162,12 +167,18 @@ function Form({ title, emailMemo, passMemo, handleClick }: FormProps) {
                     <span
                         className={
                             (passAgain.isEmpty && passAgain.isDirty) ||
-                            (passAgain.passError && passAgain.isDirty)
+                            (passAgain.passError && passAgain.isDirty) ||
+                            (pass.value !== passAgain.value &&
+                                passAgain.isDirty)
                                 ? s.alertValidate
                                 : s.hidden
                         }
                     >
-                        {passAgain.isEmpty || passAgain.passError}
+                        {
+                            passAgain.isEmpty ||
+                                passAgain.passError ||
+                                'Passwords do not match' // TODO
+                        }
                     </span>
                 </div>
             )}
