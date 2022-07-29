@@ -19,8 +19,8 @@ export const useAuth = () => {
 }
 
 export const useValidations = (value: string, validations: Validator) => {
-    const [minLengthError, setMinLengthError] = useState(false)
-    const [isEmpty, setIsEmpty] = useState(true)
+    const [minLengthError, setMinLengthError] = useState('')
+    const [isEmpty, setIsEmpty] = useState('Field is required')
 
     useEffect(() => {
         // eslint-disable-next-line no-restricted-syntax, guard-for-in
@@ -28,16 +28,16 @@ export const useValidations = (value: string, validations: Validator) => {
             switch (validation) {
                 case 'minLength':
                     if (value.length < validations[validation]) {
-                        setMinLengthError(true)
+                        setMinLengthError('Minimum 3 symbols')
                     } else {
-                        setMinLengthError(false)
+                        setMinLengthError('')
                     }
                     break
                 case 'isEmpty':
                     if (value) {
-                        setIsEmpty(false)
+                        setIsEmpty('')
                     } else {
-                        setIsEmpty(true)
+                        setIsEmpty('Field is required')
                     }
                     break
                 default:
