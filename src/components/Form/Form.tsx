@@ -1,9 +1,12 @@
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-unresolved */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react'
 import { FaAt, FaExclamation } from 'react-icons/fa'
 import { BsKeyFill } from 'react-icons/bs'
 import s from './Form.module.scss'
 import { CREATE_NEW_ACCOUNT, RESET_PASSWORD } from '../../constants'
+import { useInput } from '../../store/hooks/hooks'
 
 interface FormProps {
     title: string
@@ -14,15 +17,15 @@ interface FormProps {
 }
 
 function Form({ title, emailMemo, passMemo, handleClick }: FormProps) {
-    const [email, setEmail] = useState(emailMemo)
-    const [pass, setPass] = useState(passMemo)
-    const [passAgain, setPassAgain] = useState('')
+    const email = useInput(emailMemo)
+    const pass = useInput(passMemo)
+    const passAgain = useInput('')
     const [memo, setMemo] = useState(true)
 
     const handleOnSubmit = () => {
         if (title === RESET_PASSWORD) localStorage.removeItem('password')
 
-        handleClick(email, pass, memo)
+        handleClick(email.value, pass.value, memo)
     }
 
     return (
@@ -35,8 +38,9 @@ function Form({ title, emailMemo, passMemo, handleClick }: FormProps) {
                 <input
                     className={s.inputForm}
                     type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    value={email.value}
+                    onChange={email.onChange}
+                    onBlur={email.onBlur}
                     placeholder="email"
                 />
                 <span className={s.focusInputForm} />
@@ -56,8 +60,9 @@ function Form({ title, emailMemo, passMemo, handleClick }: FormProps) {
                     <input
                         className={s.inputForm}
                         type="password"
-                        value={pass}
-                        onChange={(e) => setPass(e.target.value)}
+                        value={pass.value}
+                        onChange={pass.onChange}
+                        onBlur={pass.onBlur}
                         placeholder="password"
                     />
                     <span className={s.focusInputForm} />
@@ -78,8 +83,9 @@ function Form({ title, emailMemo, passMemo, handleClick }: FormProps) {
                     <input
                         className={s.inputForm}
                         type="password"
-                        value={passAgain}
-                        onChange={(e) => setPassAgain(e.target.value)}
+                        value={passAgain.value}
+                        onChange={passAgain.onChange}
+                        onBlur={passAgain.onBlur}
                         placeholder="repeat password"
                     />
                     <span className={s.focusInputForm} />
